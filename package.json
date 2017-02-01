@@ -1,27 +1,36 @@
 {
-  "name": "camera_build",
+  "name": "camera_emulator_build",
   "version": "0.0.1",
-  "description": "Building a nice project to add for my university assignment",
+  "description": "Building and developing livestream filters to emulate various simulations",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
+    "restart": "pm2 startOrRestart ecosystem.config.js",
     "deploy": "pm2 deploy ecosystem.config.js production"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/JDumontSigma/camera_build.git"
+    "url": "git+https://github.com/JasonDumont/camera_emulator.git"
   },
   "keywords": [
-    "Uni"
+    "UNi"
   ],
   "author": "Jason Dumont",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/JDumontSigma/camera_build/issues"
+    "url": "https://github.com/JasonDumont/camera_emulator/issues"
   },
-  "homepage": "https://github.com/JDumontSigma/camera_build#readme",
+  "homepage": "https://github.com/JasonDumont/camera_emulator#readme",
   "devDependencies": {
-    "express": "^4.14.1",
-    "pm2": "^2.3.0"
+    "async": "^2.1.4",
+    "body-parser": "^1.16.0",
+    "compression": "^1.6.2",
+    "ejs": "^2.5.5",
+    "express": "^4.14.0",
+    "express-device": "^0.4.2",
+    "http": "0.0.0",
+    "pm2": "^2.2.3",
+    "socket.io": "^1.7.2",
+    "webrtc-adapter": "^3.1.0"
   }
 }

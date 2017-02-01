@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <link href="//fonts.googleapis.com/css?family=Roboto:300,400,500,700" rel="stylesheet" type="text/css">
+  <link href="../css/main.css" type="text/css" rel="stylesheet">
+</head>
+<style>
+.userlog{
+  width: 200px;
+  height: 400px;
+  border:solid 1px black;
+}
+</style>
+<body>
+
+  <h1>Did my site wore</h1>
+  <h2>And is it secure</h2>
+  <section class="userlog">
+
+  </section>
+  <div class="cbChoice selected">
+     <input checked type="radio" name="cb" value="normal">
+     <label for="normal">Normal Vision</label>
+     <p class="affect">Affect around 2%</p>
+     <p class="desc">This is where the description about the conditon will go</p>
+  </div>
+
+  <div class="cbChoice">
+     <input type="radio" name="cb" value="protanopia">
+     <label for="protanopia">protanopia</label>
+     <p class="affect">Affect around 2%</p>
+     <p class="desc">This is where the description about the conditon will go</p>
+  </div>
+
+  <div class="cbChoice">
+    <input type="radio" name="cb" value="protanomaly">
+    <label for="protanomaly">protanomaly</label>
+    <p class="affect">Affect around 2%</p>
+    <p class="desc">This is where the description about the conditon will go</p>
+  </div>
+
+  <div class="cbChoice">
+   <input type="radio" name="cb" value="deuteranopia">
+   <label for="deuteranopia">deuteranopia</label>
+   <p class="affect">Affect around 2%</p>
+   <p class="desc">This is where the description about the conditon will go</p>
+  </div>
+
+  <div class="cbChoice">
+   <input type="radio" name="cb" value="deuteranomaly">
+   <label for="deuteranomaly">deuteranomaly</label>
+   <p class="affect">Affect around 2%</p>
+   <p class="desc">This is where the description about the conditon will go</p>
+  </div>
+
+  <div class="cbChoice">
+   <input type="radio" name="cb" value="tritanopia">
+   <label for="tritanopia">tritanopia</label>
+   <p class="affect">Affect around 2%</p>
+   <p class="desc">This is where the description about the conditon will go</p>
+  </div>
+
+  <div class="cbChoice">
+   <input type="radio" name="cb" value="tritanomaly">
+   <label for="tritanomaly">tritanomaly</label>
+   <p class="affect">Affect around 2%</p>
+   <p class="desc">This is where the description about the conditon will go</p>
+  </div>
+
+  <div class="cbChoice">
+   <input type="radio" name="cb" value="achromatopsia">
+   <label for="achromatopsia">achromatopsia</label>
+   <p class="affect">Affect around 2%</p>
+   <p class="desc">This is where the description about the conditon will go</p>
+  </div>
+
+  <div class="cbChoice">
+   <input type="radio" name="cb" value="achromatomaly">
+   <label for="achromatomaly">achromatomaly</label>
+   <p class="affect">Affect around 2%</p>
+   <p class="desc">This is where the description about the conditon will go</p>
+  </div>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script type="text/javascript">
+      var socket = io.connect();
+      var currentCB = 'normal';
+
+    $('.cbChoice').click(function(){
+      $(this).addClass('selected');
+      var choice = $(this).find('input');
+      var temp_currentCB = choice.val();
+      choice.prop('checked', !choice.prop('checked'));
+      socket.emit('colour blind change', {oldCB: currentCB, newCB: temp_currentCB});
+      if(temp_currentCB != currentCB){
+        currentCB = temp_currentCB;
+      }
+      $('input[name=cb]').each(function(){
+          var state = $(this).prop('checked');
+          if(state){
+
+          }else{
+            $(this).parent().removeClass('selected');
+          }
+      });
+    });
+    </script>
+    <script type="text/javascript">
+      $(document).ready(function(){
+
+        var socket = io.connect();
+        var logBox = $('.userlog');
+
+        socket.emit('new desktop', "There is a new desktop user");
+
+        socket.on('desktop count',function(data){
+            logBox.append(data.time + ': ' + data.message + "<br/>");
+          });
+
+          socket.on('phone count',function(data){
+            logBox.append(data.time + ': ' + data.message + "</br>" );
+          });
+      });
+
+    </script>
+</body>
+</html>

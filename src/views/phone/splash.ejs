@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+</head>
+<style>
+.userlog{
+  width: 600px;
+  height: 400px;
+  border:solid 1px black;
+}
+.desktops{
+  width: 600px;
+  height: 200px;
+  border: solid black 1px;
+}
+.login{
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: green;
+}
+</style>
+<body>
+
+  <h1>Did my site wore</h1>
+  <h2>And is it secure</h2>
+  <section class="login">
+    <p>Enter a username</p>
+    <p class="userNameError"></p>
+    <form id="joinSession">
+      <input type="text" id="userName">
+      <button id="sub_userName">Submit</button>
+    </form>
+  </section>
+
+  <section class="desktops">
+
+  </section>
+  <section class="userlog">
+
+  </section>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script type="text/javascript">
+      $(document).ready(function(){
+
+        var socket = io.connect();
+        var logBox = $('.userlog');
+        var desktops = $('.desktops');
+        socket.emit('new phone', "There is a new phone watching");
+
+        socket.on('desktop count',function(data){
+            desktops.append(data.time + ': ' + data.message + "<br/>");
+        });
+
+        socket.on('cb change',function(data){
+            logBox.append('Remove Class ' + data.oldCB + ', then add class ' + data.newCB)
+        });
+
+
+
+//adding a username
+
+      var nickForm = $('#joinSession');
+      var nickError= $('.userNameError');
+      var nickname = $('#userName');
+      var formSubmit = $('#joinSession')
+
+      formSubmit.click(function(e){
+        e.preventDefault();
+        socket.emit('new user', nickname.val(), function(data){
+            if(data){
+              alert('Win');
+              $('.login').hide();
+
+            }else{
+              nickError.html("Sorry Someone is already using that");
+            }
+        });
+        nickname.val('');
+      });
+
+
+
+      });
+
+    </script>
+</body>
+</html>

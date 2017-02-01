@@ -1,0 +1,248 @@
+div.select {
+  display: none;
+  margin: 0 0 1em 0;
+}
+/*=================================================================
+Base Styles
+===================================================================*/
+body{
+    margin: 0;
+    height:100vh;
+    position: relative;
+}
+.desktop{
+    background-color: white;
+}
+html:-webkit-full-screen {
+  /* properties */
+  background-color: black;
+  height: 100vh;
+  display: block;
+}
+html:-moz-full-screen {
+  /* properties */
+  background-color: black;
+  height: 100vh;
+  display: block;
+}
+html:-ms-fullscreen {
+  /* properties */
+  background-color: black;
+  height: 100vh;
+  display: block;
+}
+html:full-screen { /*pre-spec */
+  /* properties */
+  background-color: black;
+  height: 100vh;
+  display: block;
+}
+html:fullscreen { /* spec */
+  /* properties */
+  background-color: black;
+  height: 100vh;
+  display: block;
+}
+
+/*=================================================================
+Video Styles
+===================================================================*/
+.left,.right{
+  width:50%;
+  float: left;
+  display: inline-block;
+  height: 100%;
+  position: relative;
+  background-color: black;
+  overflow: hidden;
+}
+#right_eye,#left_eye{
+    width: 110%;
+    float: left;
+    display: inline-block;
+    position: relative;
+    height: 100vh;
+}
+#right_eye{
+  margin-left: -20px;
+}
+/*=================================================================
+Full width/Single Video
+===================================================================*/
+.single{
+  display: none;
+}
+.fullWidth{
+  width: 100%;
+}
+/*=================================================================
+Colour Blind Filters
+===================================================================*/
+.protanopia {
+        -webkit-filter: url('../css/filters.svg#protanopia');
+        filter: url('../css/filters.svg#protanopia');
+      }
+.protanomaly {
+  -webkit-filter: url('../css/filters.svg#protanomaly');
+  filter: url('../css/filters.svg#protanomaly');
+}
+.deuteranopia {
+  -webkit-filter: url('../css/filters.svg#deuteranopia');
+  filter: url('../css/filters.svg#deuteranopia');
+}
+.deuteranomaly {
+  -webkit-filter: url('../css/filters.svg#deuteranomaly');
+  filter: url('../css/filters.svg#deuteranomaly');
+}
+.tritanopia {
+  -webkit-filter: url('../css/filters.svg#tritanopia');
+  filter: url('../css/filters.svg#tritanopia');
+}
+.tritanomaly {
+  -webkit-filter: url('../css/filters.svg#tritanomaly');
+  filter: url('../css/filters.svg#tritanomaly');
+}
+.achromatopsia {
+  -webkit-filter: url('../css/filters.svg#achromatopsia');
+  filter: url('../css/filters.svg#achromatopsia');
+}
+.achromatomaly {
+  -webkit-filter: url('../css/filters.svg#achromatomaly');
+  filter: url('../css/filters.svg#achromatomaly');
+}
+
+
+/*=================================================================
+View Mode Option Form
+===================================================================*/
+.viewModeOption {
+  width: 80px;
+  height: 26px;
+  background: #333;
+  margin: 20px 0;
+  position: relative;
+  border-radius: 50px;
+  box-shadow: inset 0px 1px 1px rgba(0, 0, 0, 0.5), 0px 1px 0px rgba(255, 255, 255, 0.2);
+}
+.viewModeOption:after {
+  content: 'OFF';
+  color: #000;
+  position: absolute;
+  right: 10px;
+  z-index: 0;
+  font: 12px/26px Arial, sans-serif;
+  font-weight: bold;
+  text-shadow: 1px 1px 0px rgba(255, 255, 255, 0.15);
+}
+.viewModeOption:before {
+  content: 'ON';
+  color: #3498db;
+  position: absolute;
+  left: 10px;
+  z-index: 0;
+  font: 12px/26px Arial, sans-serif;
+  font-weight: bold;
+}
+.viewModeOption label {
+  display: block;
+  width: 34px;
+  height: 20px;
+  cursor: pointer;
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  z-index: 1;
+  background: #fcfff4;
+  background: -webkit-linear-gradient(top, #fcfff4 0%, #dfe5d7 40%, #b3bead 100%);
+  background: linear-gradient(top, #fcfff4 0%, #dfe5d7 40%, #b3bead 100%);
+  border-radius: 50px;
+  -webkit-transition: all 0.4s ease;
+  transition: all 0.4s ease;
+  box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.3);
+}
+.viewModeOption input[type=checkbox] {
+  visibility: hidden;
+}
+.viewModeOption input[type=checkbox]:checked + label {
+  left: 43px;
+}
+
+
+/*=================================================================
+Colour Blind Filters Choice Form
+===================================================================*/
+legend {
+  font-family: 'Lato', sans-serif;
+  font-weight: bold;
+  font-size: 24px;
+  font-size: 2.4rem;
+  color: #222;
+}
+input[type='radio'] {
+  display: none;
+}
+.cbChoice {
+  width: 42%;
+  margin: 10px 1%;
+  display: inline-block;
+  float: left;
+  padding: 10px 3%;
+  font-family: 'Lato',sans-serif;
+  box-shadow: 0px 0px 10px 1px rgba(0, 0, 0, 0.45);
+}
+.cbChoice:hover {
+  cursor: pointer;
+
+  box-shadow: 0px 0px 10px 1px rgba(0, 0, 0, 0.75);
+}
+@media (max-width: 600px) {
+  .cbChoice {
+    width: 90%;
+    margin-left: 2%;
+    margin-top: 5px;
+    margin-bottom: 5px;
+  }
+}
+.cbChoice label {
+  font-size: 18px;
+  font-size: 1.8rem;
+  margin: 0;
+}
+.cbChoice p {
+  margin: 0;
+}
+.cbChoice .affect {
+  font-style: italic;
+  font-weight: bold;
+}
+.selected {
+  background-color: grey;
+  color: white;
+}
+/*=================================================================
+Hide inline svg filters
+===================================================================*/
+svg{
+  display: none;
+}
+
+/*=================================================================
+Bluring filter
+===================================================================*/
+.blur{
+  -webkit-filter: url('#blur');
+  filter: url('#blur');
+}
+
+/*=================================================================
+Log In Page
+===================================================================*/
+.signIn{
+  position: fixed;
+  height:100vh;
+  width: 100vw;
+  top: 0;
+  left: 0;
+  z-index: 1030;
+  background-color: #eceded;
+}
