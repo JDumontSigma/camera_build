@@ -85,9 +85,11 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 
 
-    <script src="http://localhost:3000/socket.io/socket.io.js"></script>
+    <script src="../socket.io/socket.io.js"></script>
     <script type="text/javascript">
-      var socket = io.connect('https://localhost:3000');
+    var host = window.location.hostname;
+    var socket = io.connect('https://' + host);
+
       var currentCB = 'normal';
 
     $('.cbChoice').click(function(){
@@ -112,7 +114,8 @@
     <script type="text/javascript">
       $(document).ready(function(){
 
-        var socket = io.connect('https://localhost:3000');
+        var host = window.location.hostname;
+        var socket = io.connect('https://' + host);
         var logBox = $('.userlog');
 
         socket.emit('new desktop', "There is a new desktop user");

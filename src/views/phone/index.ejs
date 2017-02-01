@@ -156,9 +156,10 @@
 
   <script src="https://webrtc.github.io/adapter/adapter-latest.js"></script>
   <script defer src="../js/main.js"></script>
-  <script src="http://localhost:3000/socket.io/socket.io.js"></script>
+  <script src="../socket.io/socket.io.js"></script>
   <script type="text/javascript">
-    var socket = io.connect('https://localhost:3000');
+  var host = window.location.hostname;
+  var socket = io.connect('https://' + host);
     //adding a username
 
           var nickForm = $('.signIn');
