@@ -87,7 +87,7 @@
 
     <script src="../socket.io/socket.io.js"></script>
     <script type="text/javascript">
-      var socket = io.connect('https://localhost');
+      var socket = io.connect('https://localhost:3000');
       var currentCB = 'normal';
 
     $('.cbChoice').click(function(){
@@ -112,7 +112,7 @@
     <script type="text/javascript">
       $(document).ready(function(){
 
-        var socket = io.connect('https://localhost');
+        var socket = io.connect('https://localhost:3000');
         var logBox = $('.userlog');
 
         socket.emit('new desktop', "There is a new desktop user");
