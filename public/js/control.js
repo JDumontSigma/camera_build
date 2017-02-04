@@ -5,11 +5,12 @@
 var current_view = 'VR';
 var current_cb = 'normal';
 $('.viewModeOption').click(function(){
+  $(this).addClass('selected');
   var option = $(this).find('input');
   var choice = option.val();
   if(choice !== current_view){
       alert(choice);
-
+      choice.prop('checked', !choice.prop('checked'));
       current_view = choice;
       $('input[name=VR]').each(function(){
           var state = $(this).prop('checked');
@@ -43,9 +44,10 @@ $('.cbChoice').click(function(){
   $(this).addClass('selected');
   var choice = $(this).find('input');
   var temp_currentCB = choice.val();
-  choice.prop('checked', !choice.prop('checked'));
+
 
   if(temp_currentCB != currentCB){
+    choice.prop('checked', !choice.prop('checked'));
     $('#left_eye').removeClass(currentCB);
     $('#right_eye').removeClass(currentCB);
     $('#left_eye').addClass(temp_currentCB);
