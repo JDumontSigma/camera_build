@@ -2,14 +2,28 @@
 
 
 
-var current_view = "";
-var current_cb = "";
+var current_view = 'VR';
+var current_cb = 'normal';
+$('.viewModeOption').click(function(){
+  var option = $(this).find('input');
+  var choice = option.val();
+  if(choice !== current_view){
+      alert(choice);
 
+      current_view = choice;
+      $('input[name=VR]').each(function(){
+          var state = $(this).prop('checked');
+          if(!state){
+            $(this).parent().removeClass('selected');
+          }
+      });
+  }
+});
 $('.viewModeOption').click(function(){
   var state = $('#VRCheck');
 
-  state.prop("checked",!state.prop("checked"));
-  var stateCheck = $('#VRCheck').prop("checked");
+  state.prop('checked',!state.prop('checked'));
+  var stateCheck = $('#VRCheck').prop('checked');
   if(stateCheck){
     //the state is on
     $('.right').removeClass('single');
@@ -29,7 +43,7 @@ $('.cbChoice').click(function(){
   $(this).addClass('selected');
   var choice = $(this).find('input');
   var temp_currentCB = choice.val();
-  choice.prop("checked", !choice.prop("checked"));
+  choice.prop('checked', !choice.prop('checked'));
 
   if(temp_currentCB != currentCB){
     $('#left_eye').removeClass(currentCB);
@@ -39,7 +53,7 @@ $('.cbChoice').click(function(){
     currentCB = temp_currentCB;
   }
   $('input[name=cb]').each(function(){
-      var state = $(this).prop("checked");
+      var state = $(this).prop('checked');
       if(state){
 
       }else{
@@ -56,12 +70,10 @@ var rangeSlider = function(){
       value = $('.range-slider__value');
 
   slider.each(function(){
-
     value.each(function(){
       var value = $(this).prev().attr('value');
       $(this).html(value);
     });
-
     range.on('input', function(){
       $(this).next(value).html(this.value);
     });
