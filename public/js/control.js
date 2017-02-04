@@ -10,7 +10,7 @@ $('.viewModeOption').click(function(){
   var choice = option.val();
   if(choice !== current_view){
       alert(choice);
-      choice.prop('checked', !choice.prop('checked'));
+      option.prop('checked', !option.prop('checked'));
       current_view = choice;
       $('input[name=VR]').each(function(){
           var state = $(this).prop('checked');
