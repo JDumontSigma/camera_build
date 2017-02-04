@@ -12,7 +12,7 @@
 
   <base target="_blank">
 
-  <title>Select audio and video sources</title>
+  <title>Control Panel</title>
 
   <link href="//fonts.googleapis.com/css?family=Roboto:300,400,500,700" rel="stylesheet" type="text/css">
   <link href="../css/main.css" type="text/css" rel="stylesheet">
@@ -27,7 +27,7 @@
         <legend>View Mode</legend>
   <!-- View Mode selection -->
           <div class="viewModeOption selected">
-            <input type="radio" name="VR" value="VR">
+            <input checked type="radio" name="VR" value="VR">
             <label for="VR">Dual Screen(VR)</label>
             <p>Select this option to utilise the Augmented reality version</p>
           </div>
@@ -114,22 +114,22 @@
          <legend>Blurriness</legend>
          <section class="blurriness">
            <div class="eye_choice selected">
-             <input type="radio" name="eye" value="none">
+             <input checked type="radio" name="blur" value="none">
              <label for="none">None</label>
              <p>This turns cataracts affect off</p>
            </div>
            <div class="eye_choice">
-             <input type="radio" name="eye" value="both">
+             <input type="radio" name="blur" value="both">
              <label for="none">Both</label>
              <p>Cataracts will affects both eyes</p>
            </div>
            <div class="eye_choice">
-             <input type="radio" name="eye" value="left">
+             <input type="radio" name="blur" value="left">
              <label for="left">Left Eye</label>
              <p>Cataracts will affect the left eye</p>
            </div>
            <div class="eye_choice">
-             <input type="radio" name="eye" value="right">
+             <input type="radio" name="blur" value="right">
              <label for="right">Right Eye</label>
              <p>Cataracts will affect the right eye</p>
            </div>
@@ -145,7 +145,7 @@
   <!-- Start of cataracts -->
            <legend>Cataracts</legend>
            <section class="cataracts">
-             <div class="eye_choice selected">
+             <div checked class="eye_choice selected">
                <input type="radio" name="eye" value="none">
                <label for="none">None</label>
                <p>This turns cataracts affect off</p>

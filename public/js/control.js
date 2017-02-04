@@ -3,13 +3,12 @@
 
 
 var current_view = 'VR';
-var current_cb = 'normal';
+
 $('.viewModeOption').click(function(){
   $(this).addClass('selected');
   var option = $(this).find('input');
   var choice = option.val();
   if(choice !== current_view){
-      alert(choice);
       option.prop('checked', !option.prop('checked'));
       current_view = choice;
       $('input[name=VR]').each(function(){
@@ -63,6 +62,30 @@ $('.cbChoice').click(function(){
       }
   });
 });
+
+var currentblur = 'none';
+
+$('.blurriness .eye_choice').click(function(){
+  $(this).addClass('selected');
+  var choice = $(this).find('input');
+  var temp_blur = choice.val();
+
+
+  if(temp_blur !== currentblur){
+    choice.prop('checked', !choice.prop('checked'));
+    currentblur = temp_blur;
+  }
+  $('input[name=blur]').each(function(){
+      var state = $(this).prop('checked');
+      if(state){
+
+      }else{
+        $(this).parent().removeClass('selected');
+      }
+  });
+});
+
+
 
 
 
