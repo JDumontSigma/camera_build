@@ -22,128 +22,97 @@
 <body>
 
   <div id="container">
-    <form id="viewOptions">
-      <legend>View Mode</legend>
-<!-- View Mode selection -->
-        <div class="viewModeOption selected">
-          <input type="radio" name="VR" value="VR">
-          <label for="VR">Dual Screen(VR)</label>
-          <p>Select this option to utilise the Augmented reality version</p>
-        </div>
-        <div class="viewModeOption">
-          <input type="radio" name="VR" value="SS">
-          <label for="VR">Solo Screen</label>
-          <p>Select this option to go single screen</p>
-        </div>
-<!-- End of view mode selection -->
+    <div class="options">
+      <form id="viewOptions">
+        <legend>View Mode</legend>
+  <!-- View Mode selection -->
+          <div class="viewModeOption selected">
+            <input type="radio" name="VR" value="VR">
+            <label for="VR">Dual Screen(VR)</label>
+            <p>Select this option to utilise the Augmented reality version</p>
+          </div>
+          <div class="viewModeOption">
+            <input type="radio" name="VR" value="SS">
+            <label for="VR">Solo Screen</label>
+            <p>Select this option to go single screen</p>
+          </div>
+  <!-- End of view mode selection -->
 
-<!-- Color blindness Selection -->
-      <legend>Color Blindness</legend>
-        <div class="cbChoice selected">
-           <input checked type="radio" name="cb" value="normal">
-           <label for="normal">Normal Vision</label>
+  <!-- Color blindness Selection -->
+        <legend>Color Blindness</legend>
+          <div class="cbChoice selected">
+             <input checked type="radio" name="cb" value="normal">
+             <label for="normal">Normal Vision</label>
+             <p class="affect">Affect around 2%</p>
+             <p class="desc">This is where the description about the conditon will go</p>
+          </div>
+
+  <!-- Reduced sensitivity to red -->
+          <div class="cbChoice">
+             <input type="radio" name="cb" value="protanopia">
+             <label for="protanopia">protanopia</label>
+             <p class="affect">Affect around 2%</p>
+             <p class="desc">This is where the description about the conditon will go</p>
+          </div>
+
+          <div class="cbChoice">
+            <input type="radio" name="cb" value="protanomaly">
+            <label for="protanomaly">protanomaly</label>
+            <p class="affect">Affect around 2%</p>
+            <p class="desc">This is where the description about the conditon will go</p>
+          </div>
+  <!-- End red sensitivity -->
+
+  <!-- Reduced senstivity to green -->
+          <div class="cbChoice">
+           <input type="radio" name="cb" value="deuteranopia">
+           <label for="deuteranopia">deuteranopia</label>
            <p class="affect">Affect around 2%</p>
            <p class="desc">This is where the description about the conditon will go</p>
-        </div>
+          </div>
 
-<!-- Reduced sensitivity to red -->
-        <div class="cbChoice">
-           <input type="radio" name="cb" value="protanopia">
-           <label for="protanopia">protanopia</label>
+          <div class="cbChoice">
+           <input type="radio" name="cb" value="deuteranomaly">
+           <label for="deuteranomaly">deuteranomaly</label>
            <p class="affect">Affect around 2%</p>
            <p class="desc">This is where the description about the conditon will go</p>
-        </div>
+          </div>
+  <!-- End green sensitivy -->
 
-        <div class="cbChoice">
-          <input type="radio" name="cb" value="protanomaly">
-          <label for="protanomaly">protanomaly</label>
-          <p class="affect">Affect around 2%</p>
-          <p class="desc">This is where the description about the conditon will go</p>
-        </div>
-<!-- End red sensitivity -->
+  <!-- Blue Sensitivity -->
+          <div class="cbChoice">
+           <input type="radio" name="cb" value="tritanopia">
+           <label for="tritanopia">tritanopia</label>
+           <p class="affect">Affect around 2%</p>
+           <p class="desc">This is where the description about the conditon will go</p>
+          </div>
 
-<!-- Reduced senstivity to green -->
-        <div class="cbChoice">
-         <input type="radio" name="cb" value="deuteranopia">
-         <label for="deuteranopia">deuteranopia</label>
-         <p class="affect">Affect around 2%</p>
-         <p class="desc">This is where the description about the conditon will go</p>
-        </div>
+          <div class="cbChoice">
+           <input type="radio" name="cb" value="tritanomaly">
+           <label for="tritanomaly">tritanomaly</label>
+           <p class="affect">Affect around 2%</p>
+           <p class="desc">This is where the description about the conditon will go</p>
+          </div>
+  <!-- End of blue -->
 
-        <div class="cbChoice">
-         <input type="radio" name="cb" value="deuteranomaly">
-         <label for="deuteranomaly">deuteranomaly</label>
-         <p class="affect">Affect around 2%</p>
-         <p class="desc">This is where the description about the conditon will go</p>
-        </div>
-<!-- End green sensitivy -->
+  <!-- Complete colour blindness -->
+          <div class="cbChoice">
+           <input type="radio" name="cb" value="achromatopsia">
+           <label for="achromatopsia">achromatopsia</label>
+           <p class="affect">Affect around 2%</p>
+           <p class="desc">This is where the description about the conditon will go</p>
+          </div>
 
-<!-- Blue Sensitivity -->
-        <div class="cbChoice">
-         <input type="radio" name="cb" value="tritanopia">
-         <label for="tritanopia">tritanopia</label>
-         <p class="affect">Affect around 2%</p>
-         <p class="desc">This is where the description about the conditon will go</p>
-        </div>
-
-        <div class="cbChoice">
-         <input type="radio" name="cb" value="tritanomaly">
-         <label for="tritanomaly">tritanomaly</label>
-         <p class="affect">Affect around 2%</p>
-         <p class="desc">This is where the description about the conditon will go</p>
-        </div>
-<!-- End of blue -->
-
-<!-- Complete colour blindness -->
-        <div class="cbChoice">
-         <input type="radio" name="cb" value="achromatopsia">
-         <label for="achromatopsia">achromatopsia</label>
-         <p class="affect">Affect around 2%</p>
-         <p class="desc">This is where the description about the conditon will go</p>
-        </div>
-
-        <div class="cbChoice">
-         <input type="radio" name="cb" value="achromatomaly">
-         <label for="achromatomaly">achromatomaly</label>
-         <p class="affect">Affect around 2%</p>
-         <p class="desc">This is where the description about the conditon will go</p>
-        </div>
-<!-- End of complete colour blindness -->
-<!-- Bluriness -->
-       <legend>Blurriness</legend>
-       <section class="blurriness">
-         <div class="eye_choice selected">
-           <input type="radio" name="eye" value="none">
-           <label for="none">None</label>
-           <p>This turns cataracts affect off</p>
-         </div>
-         <div class="eye_choice">
-           <input type="radio" name="eye" value="both">
-           <label for="none">Both</label>
-           <p>Cataracts will affects both eyes</p>
-         </div>
-         <div class="eye_choice">
-           <input type="radio" name="eye" value="left">
-           <label for="left">Left Eye</label>
-           <p>Cataracts will affect the left eye</p>
-         </div>
-         <div class="eye_choice">
-           <input type="radio" name="eye" value="right">
-           <label for="right">Right Eye</label>
-           <p>Cataracts will affect the right eye</p>
-         </div>
-         <h4>Severity</h4>
-         <div class="range-slider">
-           <input class="range-slider__range" type="range" value="0" min="0" max="100" step="1">
-           <span class="range-slider__value">0</span>
-         </div>
-       </section>
-
-<!-- End of blurriness -->
-
-<!-- Start of cataracts -->
-         <legend>Cataracts</legend>
-         <section class="cataracts">
+          <div class="cbChoice">
+           <input type="radio" name="cb" value="achromatomaly">
+           <label for="achromatomaly">achromatomaly</label>
+           <p class="affect">Affect around 2%</p>
+           <p class="desc">This is where the description about the conditon will go</p>
+          </div>
+  <!-- End of complete colour blindness -->
+  <!-- Bluriness -->
+         <legend>Blurriness</legend>
+         <section class="blurriness">
            <div class="eye_choice selected">
              <input type="radio" name="eye" value="none">
              <label for="none">None</label>
@@ -170,51 +139,78 @@
              <span class="range-slider__value">0</span>
            </div>
          </section>
-         <!-- End of catracts -->
+
+  <!-- End of blurriness -->
+
+  <!-- Start of cataracts -->
+           <legend>Cataracts</legend>
+           <section class="cataracts">
+             <div class="eye_choice selected">
+               <input type="radio" name="eye" value="none">
+               <label for="none">None</label>
+               <p>This turns cataracts affect off</p>
+             </div>
+             <div class="eye_choice">
+               <input type="radio" name="eye" value="both">
+               <label for="none">Both</label>
+               <p>Cataracts will affects both eyes</p>
+             </div>
+             <div class="eye_choice">
+               <input type="radio" name="eye" value="left">
+               <label for="left">Left Eye</label>
+               <p>Cataracts will affect the left eye</p>
+             </div>
+             <div class="eye_choice">
+               <input type="radio" name="eye" value="right">
+               <label for="right">Right Eye</label>
+               <p>Cataracts will affect the right eye</p>
+             </div>
+             <h4>Severity</h4>
+             <div class="range-slider">
+               <input class="range-slider__range" type="range" value="0" min="0" max="100" step="1">
+               <span class="range-slider__value">0</span>
+             </div>
+           </section>
+           <!-- End of catracts -->
 
 
-         <!-- Start of Diabetic Retinopathy -->
-                     <legend>Diabetic Rhetinopathy</legend>
-                     <section class="cataracts">
-                       <div class="eye_choice selected">
-                         <input type="radio" name="eye" value="none">
-                         <label for="none">None</label>
-                         <p>This turns cataracts affect off</p>
-                       </div>
-                       <div class="eye_choice">
-                         <input type="radio" name="eye" value="both">
-                         <label for="none">Both</label>
-                         <p>Cataracts will affects both eyes</p>
-                       </div>
-                       <div class="eye_choice">
-                         <input type="radio" name="eye" value="left">
-                         <label for="left">Left Eye</label>
-                         <p>Cataracts will affect the left eye</p>
-                       </div>
-                       <div class="eye_choice">
-                         <input type="radio" name="eye" value="right">
-                         <label for="right">Right Eye</label>
-                         <p>Cataracts will affect the right eye</p>
-                       </div>
-                       <h4>Severity</h4>
-                       <div class="range-slider">
-                         <input class="range-slider__range" type="range" value="0" min="0" max="100" step="1">
-                         <span class="range-slider__value">0</span>
-                       </div>
-                     </section>
-                     <!-- End of diabetic -->
+           <!-- Start of Diabetic Retinopathy -->
+                       <legend>Diabetic Rhetinopathy</legend>
+                       <section class="cataracts">
+                         <div class="eye_choice selected">
+                           <input type="radio" name="eye" value="none">
+                           <label for="none">None</label>
+                           <p>This turns cataracts affect off</p>
+                         </div>
+                         <div class="eye_choice">
+                           <input type="radio" name="eye" value="both">
+                           <label for="none">Both</label>
+                           <p>Cataracts will affects both eyes</p>
+                         </div>
+                         <div class="eye_choice">
+                           <input type="radio" name="eye" value="left">
+                           <label for="left">Left Eye</label>
+                           <p>Cataracts will affect the left eye</p>
+                         </div>
+                         <div class="eye_choice">
+                           <input type="radio" name="eye" value="right">
+                           <label for="right">Right Eye</label>
+                           <p>Cataracts will affect the right eye</p>
+                         </div>
+                         <h4>Severity</h4>
+                         <div class="range-slider">
+                           <input class="range-slider__range" type="range" value="0" min="0" max="100" step="1">
+                           <span class="range-slider__value">0</span>
+                         </div>
+                       </section>
+                       <!-- End of diabetic -->
+       </form>
+    </div>
 
-
-
-
-
-
-
-     </form>
  </div>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 <script type="text/javascript">
-  
+
 </script>
   <script>
     (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
