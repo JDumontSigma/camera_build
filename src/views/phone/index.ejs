@@ -64,90 +64,6 @@
           <video id="right_eye" muted autoplay></video>
     </div>
     <!-- End video Displays -->
-
- <!-- <div class="options">
-	 <form id="viewOptions">
-		 <legend>View Mode</legend>
-		 <div class="viewModeOption">
-			 <input type="checkbox" value="VR" id="VRCheck" name="viewMode" checked />
-  		 <label for="viewMode"></label>
-		 </div>
-     <lengend>For a better experience go full screen</lengend>
-     <div class="viewModeOption">
-			 <input type="checkbox" value="fullScreen" id="fullScreen" name="fullScreen" />
-  		 <label for="fullScreen"></label>
-       <button id="fullScreen">FullScreen</button>
-		 </div>
-
-
-		 <legend>Color Blindness</legend>
-		 <div class="cbChoice selected">
-			 	<input checked type="radio" name="cb" value="normal">
-				<label for="normal">Normal Vision</label>
-				<p class="affect">Affect around 2%</p>
-				<p class="desc">This is where the description about the conditon will go</p>
-		 </div>
-
-		 <div class="cbChoice">
-				<input type="radio" name="cb" value="protanopia">
-				<label for="protanopia">protanopia</label>
-				<p class="affect">Affect around 2%</p>
-				<p class="desc">This is where the description about the conditon will go</p>
-		 </div>
-
-		 <div class="cbChoice">
-		 	 <input type="radio" name="cb" value="protanomaly">
-		 	 <label for="protanomaly">protanomaly</label>
-		 	 <p class="affect">Affect around 2%</p>
-		 	 <p class="desc">This is where the description about the conditon will go</p>
-		 </div>
-
-		 <div class="cbChoice">
-		 	<input type="radio" name="cb" value="deuteranopia">
-		 	<label for="deuteranopia">deuteranopia</label>
-		 	<p class="affect">Affect around 2%</p>
-		 	<p class="desc">This is where the description about the conditon will go</p>
-		 </div>
-
-		 <div class="cbChoice">
-			<input type="radio" name="cb" value="deuteranomaly">
-			<label for="deuteranomaly">deuteranomaly</label>
-			<p class="affect">Affect around 2%</p>
-			<p class="desc">This is where the description about the conditon will go</p>
-		 </div>
-
-		 <div class="cbChoice">
-		  <input type="radio" name="cb" value="tritanopia">
-		  <label for="tritanopia">tritanopia</label>
-		  <p class="affect">Affect around 2%</p>
-		  <p class="desc">This is where the description about the conditon will go</p>
-		 </div>
-
-		 <div class="cbChoice">
-		  <input type="radio" name="cb" value="tritanomaly">
-		  <label for="tritanomaly">tritanomaly</label>
-		  <p class="affect">Affect around 2%</p>
-		  <p class="desc">This is where the description about the conditon will go</p>
-		 </div>
-
-		 <div class="cbChoice">
-		  <input type="radio" name="cb" value="achromatopsia">
-		  <label for="achromatopsia">achromatopsia</label>
-		  <p class="affect">Affect around 2%</p>
-		  <p class="desc">This is where the description about the conditon will go</p>
-		 </div>
-
-		 <div class="cbChoice">
-			<input type="radio" name="cb" value="achromatomaly">
-		  <label for="achromatomaly">achromatomaly</label>
-		  <p class="affect">Affect around 2%</p>
-		  <p class="desc">This is where the description about the conditon will go</p>
-		 </div>
-
-     <legend>Blindness</legend>
-     <input id="blind" type ="range" min ="0" max="100" step ="1" value ="0"/>
-	 </form>
- </div> -->
   </div>
 
 
@@ -160,28 +76,10 @@
   <script type="text/javascript">
   var host = window.location.hostname;
   var socket = io.connect('https://' + host);
-    //adding a username
-          //
-          // var nickForm = $('.signIn');
-          // var nickError= $('.userNameError');
-          // var nickname = $('#userName');
-          //
-          // nickForm.submit(function(e){
-          //   e.preventDefault();
-          //   socket.emit('new user', nickname.val(), function(data){
-          //       if(data){
-          //         $('.signIn').hide();
-          //
-          //       }else{
-          //         nickError.html("Sorry Someone is already using that");
-          //       }
-          //   });
-          //   nickname.val('');
-          // });
 
 
     socket.on('cb change',function(data){
-        //alert('Remove Class ' + data.oldCB + ', then add class ' + data.newCB);
+        alert('Remove Class ' + data.oldCB + ', then add class ' + data.newCB);
         $('#left_eye').removeClass(data.oldCB);
         $('#right_eye').removeClass(data.oldCB);
         $('#left_eye').addClass(data.newCB);
