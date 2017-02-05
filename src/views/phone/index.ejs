@@ -24,7 +24,7 @@
   <svg height="0">
     <defs>
       <filter id="blur" x="0" y="0">
-      <feGaussianBlur in="SourceGraphic" stdDeviation="1"/>
+      <feGaussianBlur in="SourceGraphic" stdDeviation="5"/>
       </filter>
     </defs>
   </svg>
@@ -100,7 +100,7 @@
         $('#left_eye').addClass('blur');
         $('#right_eye').removeClass('blur');
       }
-      if(data.choice === "left"){
+      if(data.choice === "right"){
         $('#left_eye').removeClass('blur');
         $('#right_eye').addClass('blur');
       }
