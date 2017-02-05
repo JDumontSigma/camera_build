@@ -79,7 +79,7 @@
 
 
     socket.on('cb change',function(data){
-        alert('Remove Class ' + data.oldCB + ', then add class ' + data.newCB);
+        //alert('Remove Class ' + data.oldCB + ', then add class ' + data.newCB);
         $('#left_eye').removeClass(data.oldCB);
         $('#right_eye').removeClass(data.oldCB);
         $('#left_eye').addClass(data.newCB);
