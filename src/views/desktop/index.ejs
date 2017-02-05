@@ -214,8 +214,12 @@
 <script>
 'use strict';
 var host = window.location.hostname;
-var socket = io.connect('https://' + host + ':443');
+var socket = io.connect('https://' + host);
 
+
+/*=================================================================
+Single Or Augmented view
+===============================================================*/
 var current_view = 'VR';
 
 $('.viewModeOption').click(function(){
@@ -250,7 +254,9 @@ $('.viewModeOption').click(function(){
   }
 });
 
-
+/*=================================================================
+Colour blindness
+===============================================================*/
 var currentCB = 'normal';
 
 $('.cbChoice').click(function(){
@@ -258,13 +264,9 @@ $('.cbChoice').click(function(){
   var choice = $(this).find('input');
   var temp_currentCB = choice.val();
 
-
-  if(temp_currentCB != currentCB){
+  if(temp_currentCB !== currentCB){
     choice.prop('checked', !choice.prop('checked'));
-    $('#left_eye').removeClass(currentCB);
-    $('#right_eye').removeClass(currentCB);
-    $('#left_eye').addClass(temp_currentCB);
-    $('#right_eye').addClass(temp_currentCB);
+    socket.emit('colour blind change', {oldCB: currentCB, newCB: temp_currentCB});
     currentCB = temp_currentCB;
   }
   $('input[name=cb]').each(function(){
@@ -277,6 +279,10 @@ $('.cbChoice').click(function(){
   });
 });
 
+
+/*=================================================================
+Blurriness eye affect
+===============================================================*/
 var currentblur = 'none';
 
 $('.blurriness .eye_choice').click(function(){
@@ -298,6 +304,10 @@ $('.blurriness .eye_choice').click(function(){
       }
   });
 });
+
+/*=================================================================
+Slider functions
+===============================================================*/
 var rangeSlider = function(){
   var slider = $('.range-slider'),
       range = $('.range-slider__range'),
