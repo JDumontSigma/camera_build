@@ -65,53 +65,12 @@ io.sockets.on('connection',function(socket){
   // });
 
   socket.on('colour blind change', function(data){
+    console.log(data);
     socket.broadcast.emit('cb change',data);
-    //socket.broadcast.emit
-    //this sends it to everyone but myself
+
   });
 
-  socket.on('new phone', function(data){
-    var date = new Date();
-    var currentTime = date.getTime();
-    socket.broadcast.emit('phone count',{time:currentTime,message:data});
-  });
 
-  socket.on('new desktop', function(data){
-    var date = new Date();
-    var currentTime = date.getTime();
-    socket.broadcast.emit('desktop count',{time:currentTime,message:data});
-  });
-
-  // socket.on('disconnect', function(data){
-  //   //if no sockt nickname dont do anything
-  //   if(!socket.nickname) return;
-  //
-  //   nicknames.splice(nicknames.indexOf(socket.nickname),1);
-  //   io.sockets.emit('usernames',nicknames);
-  // });
-
-
-
-
-    socket.on('new user', function(data, callback){
-      if(nicknames.indexOf(data) !== -1){
-        callback(false);
-      }else{
-        callback(true);
-        socket.nickname = data;
-        nicknames.push(socket.nickname);
-        io.sockets.emit('usernames', nicknames);
-      }
-    });
-
-
-    socket.on('disconnect', function(data){
-      //if no sockt nickname dont do anything
-      if(!socket.nickname) return;
-
-      nicknames.splice(nicknames.indexOf(socket.nickname),1);
-      io.sockets.emit('usernames',nicknames);
-    });
 
 
 });
