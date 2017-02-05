@@ -24,7 +24,7 @@
   <svg height="0">
     <defs>
       <filter id="blur" x="0" y="0">
-      <feGaussianBlur in="SourceGraphic" stdDeviation="0.1"/>
+      <feGaussianBlur in="SourceGraphic" stdDeviation="1"/>
       </filter>
     </defs>
   </svg>
@@ -84,7 +84,26 @@
         $('#right_eye').removeClass(data.oldCB);
         $('#left_eye').addClass(data.newCB);
         $('#right_eye').addClass(data.newCB);
+    });
 
+    socket.on('eye blur',function(data){
+      alert(data.choice);
+      if(data.choice === "none"){
+        $('#left_eye').removeClass('blur');
+        $('#right_eye').removeClass('blur');
+      }
+      if(data.choice === "both"){
+        $('#left_eye').addClass('blur');
+        $('#right_eye').addClass('blur');
+      }
+      if(data.choice === "left"){
+        $('#left_eye').addClass('blur');
+        $('#right_eye').removeClass('blur');
+      }
+      if(data.choice === "left"){
+        $('#left_eye').removeClass('blur');
+        $('#right_eye').addClass('blur');
+      }
     });
 
 </script>

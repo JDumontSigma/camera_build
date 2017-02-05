@@ -65,9 +65,13 @@ io.sockets.on('connection',function(socket){
   // });
 
   socket.on('colour blind change', function(data){
-    console.log(data);
     socket.broadcast.emit('cb change',data);
 
+  });
+
+  socket.on('blur eye choice',function(data){
+    var option = data.option;
+    socket.broadcast.emit('eye blur',{choice:option});
   });
 
 

@@ -291,6 +291,7 @@ $(document).ready(function(){
 
     if(temp_blur !== currentblur){
       choice.prop('checked', !choice.prop('checked'));
+      socket.emit('blur eye choice',{option:temp_blur});
       currentblur = temp_blur;
     }
     $('input[name=blur]').each(function(){
