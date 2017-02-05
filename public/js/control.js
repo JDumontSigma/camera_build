@@ -1,6 +1,6 @@
 'use strict';
 var host = window.location.hostname;
-var socket = io.connect('https://' + host);
+var socket = io.connect('https://' + host + ':3000');
 
 
 var current_view = 'VR';
