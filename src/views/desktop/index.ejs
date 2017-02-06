@@ -326,7 +326,7 @@ $(document).ready(function(){
         if(id === 'db'){
           if(currentDB !== $(this).val()){
             currentDB = $(this).val();
-            socket.emit('db level',{level:currentDB});
+            socket.emit('db level',{level:$(this).val()});
           }
         }
         $(this).next(value).html(this.value);
