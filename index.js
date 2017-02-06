@@ -56,6 +56,7 @@ app.use(function (err, req, res) {
 
 
 var currentblur = 0;
+var currentDB = 0;
 //start of every users connection
 //function(socket) = each users socket connection
 io.sockets.on('connection',function(socket){
@@ -79,6 +80,32 @@ io.sockets.on('connection',function(socket){
 
     if(level !== currentblur){
       socket.broadcast.emit('new blur',{number:level})
+      currentblur = level;
+    }
+
+  });
+
+  socket.on('db level',function(data){
+    var level = data.level;
+
+    if(level !== currentDB){
+      var number;
+      if(level === 20){
+        number = 0;
+      }
+      if(level === 40){
+        number = 1;
+      }
+      if(level === 60){
+        number = 2;
+      }
+      if(level === 80){
+        number = 3;
+      }
+      if(level === 100){
+        number =40;
+      }
+      socket.broadcast.emit('new db',{number:number})
       currentblur = level;
     }
 

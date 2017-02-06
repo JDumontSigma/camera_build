@@ -199,7 +199,7 @@
                          </div>
                          <h4>Severity</h4>
                          <div class="range-slider">
-                           <input class="range-slider__range" type="range" value="0" min="0" max="100" step="1">
+                           <input class="range-slider__range" id="db" type="range" value="0" min="0" max="100" step="20">
                            <span class="range-slider__value">0</span>
                          </div>
                        </section>
@@ -211,9 +211,27 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 <script src="../socket.io/socket.io.js"></script>
 <script>
+var imgString = ['<img src="../img/dr_1.png>" alt="diabetic retinopathy">',
+                 '<img src="../img/dr_1.png>" alt="diabetic retinopathy"><img src="../img/dr_2.png>" alt="diabetic retinopathy">',
+                 '<img src="../img/dr_1.png>" alt="diabetic retinopathy"><img src="../img/dr_2.png>" alt="diabetic retinopathy"><img src="../img/dr_3.png>" alt="diabetic retinopathy">',
+               '<img src="../img/dr_1.png>" alt="diabetic retinopathy"><img src="../img/dr_2.png>" alt="diabetic retinopathy"><img src="../img/dr_3.png>" alt="diabetic retinopathy"><img src="../img/dr_4.png>" alt="diabetic retinopathy">',
+             '<img src="../img/dr_1.png>" alt="diabetic retinopathy"><img src="../img/dr_2.png>" alt="diabetic retinopathy"><img src="../img/dr_3.png>" alt="diabetic retinopathy"><img src="../img/dr_4.png>" alt="diabetic retinopathy"><img src="../img/dr_5.png>" alt="diabetic retinopathy">']
 $(document).ready(function(){
   var host = window.location.hostname;
   var socket = io.connect('https://' + host);
+  /*=================================================================
+  DR
+  ===============================================================*/
+
+  socket.on('new db',function(data){
+    var string = imgString[data.number];
+    $('.overlay').html('').append(string);
+  });
+
+
+
+
+
 
   /*=================================================================
   Single Or Augmented view
@@ -235,22 +253,7 @@ $(document).ready(function(){
         });
     }
   });
-  $('.viewModeOption').click(function(){
-    var state = $('#VRCheck');
 
-    state.prop('checked',!state.prop('checked'));
-    var stateCheck = $('#VRCheck').prop('checked');
-    if(stateCheck){
-      //the state is on
-      $('.right').removeClass('single');
-      $('.left').removeClass('fullWidth');
-    }else{
-      //turn the vr off
-       $('.right').addClass('single');
-       $('.left').addClass('fullWidth');
-
-    }
-  });
 
   /*=================================================================
   Colour blindness
@@ -321,10 +324,17 @@ $(document).ready(function(){
       range.on('input', function(){
         var id = $(this).attr('id');
         var currentBlurVal;
+        var currentDB;
         if(id === 'blur'){
           if(currentBlurVal !== $(this).val()){
             currentBlurVal = $(this).val();
             socket.emit('blur level',{level:currentBlurVal});
+          }
+        }
+        if(id === 'db'){
+          if(currentBlurVal !== $(this).val()){
+            currentBlurVal = $(this).val();
+            socket.emit('db level',{level:currentdb});
           }
         }
         $(this).next(value).html(this.value);
