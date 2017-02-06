@@ -105,8 +105,8 @@ io.sockets.on('connection',function(socket){
       if(level === 100){
         number =40;
       }
-      socket.broadcast.emit('new db',{number:number})
-      currentblur = level;
+      socket.broadcast.emit('new db',{number:number});
+      currentDB = level;
     }
 
   });

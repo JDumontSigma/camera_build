@@ -84,6 +84,7 @@
 
 
   socket.on('new db',function(data){
+    alert(imgString[data.number]);
     var string = imgString[data.number];
     $('.overlay').html('').append(string);
   });
