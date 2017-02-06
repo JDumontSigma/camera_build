@@ -87,25 +87,24 @@ io.sockets.on('connection',function(socket){
 
   socket.on('db level',function(data){
     var level = data.level;
-
-    if(level !== currentDB){
-      var number;
-      if(level === 20){
-        number = 0;
-      }
-      if(level === 40){
-        number = 1;
-      }
-      if(level === 60){
-        number = 2;
-      }
-      if(level === 80){
-        number = 3;
-      }
-      if(level === 100){
-        number = 40;
-      }
-      socket.broadcast.emit('new db',{number:number});
+    // if(level !== currentDB){
+    //   var number;
+    //   if(level === 20){
+    //     number = 0;
+    //   }
+    //   if(level === 40){
+    //     number = 1;
+    //   }
+    //   if(level === 60){
+    //     number = 2;
+    //   }
+    //   if(level === 80){
+    //     number = 3;
+    //   }
+    //   if(level === 100){
+    //     number = 40;
+    //   }
+      socket.broadcast.emit('new db',{number:level});
       currentDB = level;
     }
 
