@@ -211,11 +211,7 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 <script src="../socket.io/socket.io.js"></script>
 <script>
-var imgString = ['<img src="../img/dr_1.png>" alt="diabetic retinopathy">',
-                 '<img src="../img/dr_1.png>" alt="diabetic retinopathy"><img src="../img/dr_2.png>" alt="diabetic retinopathy">',
-                 '<img src="../img/dr_1.png>" alt="diabetic retinopathy"><img src="../img/dr_2.png>" alt="diabetic retinopathy"><img src="../img/dr_3.png>" alt="diabetic retinopathy">',
-               '<img src="../img/dr_1.png>" alt="diabetic retinopathy"><img src="../img/dr_2.png>" alt="diabetic retinopathy"><img src="../img/dr_3.png>" alt="diabetic retinopathy"><img src="../img/dr_4.png>" alt="diabetic retinopathy">',
-             '<img src="../img/dr_1.png>" alt="diabetic retinopathy"><img src="../img/dr_2.png>" alt="diabetic retinopathy"><img src="../img/dr_3.png>" alt="diabetic retinopathy"><img src="../img/dr_4.png>" alt="diabetic retinopathy"><img src="../img/dr_5.png>" alt="diabetic retinopathy">']
+
 $(document).ready(function(){
   var host = window.location.hostname;
   var socket = io.connect('https://' + host);
@@ -223,10 +219,6 @@ $(document).ready(function(){
   DR
   ===============================================================*/
 
-  socket.on('new db',function(data){
-    var string = imgString[data.number];
-    $('.overlay').html('').append(string);
-  });
 
 
 

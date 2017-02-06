@@ -57,7 +57,7 @@
     <div class="left">
           <video id="left_eye" muted autoplay></video>
           <div class="overlay">
-            
+
           </div>
     </div>
     <div class="right">
@@ -76,6 +76,22 @@
   <script type="text/javascript">
   var host = window.location.hostname;
   var socket = io.connect('https://' + host);
+  var imgString = ['<img src="../img/dr_1.png>" alt="diabetic retinopathy">',
+                   '<img src="../img/dr_1.png>" alt="diabetic retinopathy"><img src="../img/dr_2.png>" alt="diabetic retinopathy">',
+                   '<img src="../img/dr_1.png>" alt="diabetic retinopathy"><img src="../img/dr_2.png>" alt="diabetic retinopathy"><img src="../img/dr_3.png>" alt="diabetic retinopathy">',
+                 '<img src="../img/dr_1.png>" alt="diabetic retinopathy"><img src="../img/dr_2.png>" alt="diabetic retinopathy"><img src="../img/dr_3.png>" alt="diabetic retinopathy"><img src="../img/dr_4.png>" alt="diabetic retinopathy">',
+               '<img src="../img/dr_1.png>" alt="diabetic retinopathy"><img src="../img/dr_2.png>" alt="diabetic retinopathy"><img src="../img/dr_3.png>" alt="diabetic retinopathy"><img src="../img/dr_4.png>" alt="diabetic retinopathy"><img src="../img/dr_5.png>" alt="diabetic retinopathy">'];
+
+
+  socket.on('new db',function(data){
+    var string = imgString[data.number];
+    $('.overlay').html('').append(string);
+  });
+
+
+
+
+
 
   function launchIntoFullscreen(element) {
     if(element.requestFullscreen) {
