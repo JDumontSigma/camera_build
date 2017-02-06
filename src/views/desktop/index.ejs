@@ -324,9 +324,8 @@ $(document).ready(function(){
           }
         }
         if(id === 'db'){
-          if(currentBlurVal !== $(this).val()){
-          
-            currentBlurVal = $(this).val();
+          if(currentDB !== $(this).val()){
+            currentDB = $(this).val();
             socket.emit('db level',{level:currentDB});
           }
         }
