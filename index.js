@@ -75,7 +75,7 @@ io.sockets.on('connection',function(socket){
   });
 
   socket.on('blur level',function(data){
-    var level = data.number;
+    var level = data.level;
 
     if(level !== currentblur){
       socket.broadcast.emit('new blur',{number:level})
