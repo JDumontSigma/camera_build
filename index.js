@@ -55,7 +55,7 @@ app.use(function (err, req, res) {
 
 
 
-
+var currentblur = 0;
 //start of every users connection
 //function(socket) = each users socket connection
 io.sockets.on('connection',function(socket){
@@ -72,6 +72,16 @@ io.sockets.on('connection',function(socket){
   socket.on('blur eye choice',function(data){
     var option = data.option;
     socket.broadcast.emit('eye blur',{choice:option});
+  });
+
+  socket.on('blur level',function(data){
+    var level = data.number;
+
+    if(level !== currentblur){
+      socket.broadcast.emit('new blur',{number:level})
+      currentblur = level;
+    }
+
   });
 
 

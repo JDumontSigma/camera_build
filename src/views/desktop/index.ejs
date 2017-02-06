@@ -134,8 +134,8 @@
              <p>Cataracts will affect the right eye</p>
            </div>
            <h4>Severity</h4>
-           <div class="range-slider">
-             <input class="range-slider__range" type="range" value="0" min="0" max="100" step="1">
+           <div class="range-slider" >
+             <input class="range-slider__range" id="blur" type="range" value="0" min="0" max="100" step="1">
              <span class="range-slider__value">0</span>
            </div>
          </section>
@@ -313,11 +313,20 @@ $(document).ready(function(){
         value = $('.range-slider__value');
 
     slider.each(function(){
+
       value.each(function(){
         var value = $(this).prev().attr('value');
         $(this).html(value);
       });
       range.on('input', function(){
+        var id = $(this).attr('id');
+        var currentBlurVal;
+        if(id === 'blur'){
+          if(currentBlurVal !== $(this).val()){
+            currentBlurVal = $(this).val();
+            socket.emit('blur level',{level:currentBlurVal});
+          }
+        }
         $(this).next(value).html(this.value);
       });
     });

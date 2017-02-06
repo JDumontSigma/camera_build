@@ -28,17 +28,7 @@
       </filter>
     </defs>
   </svg>
-  <!-- <section class="loginPage">
-    <div class="container">
-      <form class="signIn">
-        <legen>Please Sign in</legen>
-        <input type="text" id="userName">
-        <p class="userNameError"></p>
-        <button type="submit">Submit</button>
-      </form>
-    </div>
 
-  </section> -->
   <div id="container">
     <!-- Set up the video streams -->
     <div class="select">
@@ -104,6 +94,11 @@
         $('#left_eye').removeClass('blur');
         $('#right_eye').addClass('blur');
       }
+    });
+
+    socket.on('blur level',function(data){
+      var blur = data.level / 10;
+      $('#blur').find('feGaussianBlur').attr('stdDeviation',blur);
     });
 
 </script>
