@@ -96,7 +96,6 @@
     });
 
     socket.on('new blur',function(data){
-      alert(data);
       var blur = data.number / 10;
       $('#blur').find('feGaussianBlur').attr('stdDeviation',blur);
     });
