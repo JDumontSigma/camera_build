@@ -79,7 +79,7 @@ io.sockets.on('connection',function(socket){
     var level = data.level;
 
     if(level !== currentblur){
-      socket.broadcast.emit('new blur',{number:level})
+      socket.broadcast.emit('new blur',{number:level});
       currentblur = level;
     }
 
@@ -103,7 +103,7 @@ io.sockets.on('connection',function(socket){
         number = 3;
       }
       if(level === 100){
-        number =40;
+        number = 40;
       }
       socket.broadcast.emit('new db',{number:number});
       currentDB = level;
