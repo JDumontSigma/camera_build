@@ -84,8 +84,23 @@
 
 
   socket.on('new db',function(data){
-    console.log(data);
-    var string = imgString[data.number];
+    var arrayPos;
+    if(data.number === 20){
+      arrayPos = 0;
+    }
+    if(data.number === 40){
+      arrayPos = 1;
+    }
+    if(data.number === 60){
+      arrayPos = 2;
+    }
+    if(data.number === 80){
+      arrayPos = 3;
+    }
+    if(data.number === 100){
+      arrayPos = 4;
+    }
+    var string = imgString[arratPos];
     $('.overlay').html('').append(string);
   });
 
