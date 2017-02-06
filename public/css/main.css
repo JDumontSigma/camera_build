@@ -407,5 +407,45 @@ input::-moz-focus-outer {
 
 /* Pages */
 /* =========================================================================== */
-/* Vendor */
+/* full screen
 /* =========================================================================== */
+
+.fullScreen{
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0,0,0,0.85);
+  top: 0;
+  left:0;
+  z-index: 1000;
+}
+.fullScreen .holder{
+  width: 50%;
+  padding: 30px;
+  margin-left: 25%;
+  position: relative;
+  background-color: white;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+.fullScreen .holder h4{
+  margin: 0;
+  font-size: 4rem;
+}
+.fullScreen .holder .cancel{
+  background-color: red;
+  color: white;
+  font-size: 3rem;
+  border: none;
+  padding: 10px 20px;
+}
+.fullScreen .holder .accept{
+  background-color: green;
+  color: white;
+  float: right;
+  font-size: 3rem;
+  border: none;
+  padding: 10px 20px;
+}
