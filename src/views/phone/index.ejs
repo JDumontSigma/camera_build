@@ -92,6 +92,7 @@ $('.cancel').on('click',function(e){
 });
 $('.accept').on('click',function(e){
   e.preventDefault();
+  $('.fullScreen').hide();
   // Launch fullscreen for browsers that support it!
   launchIntoFullscreen(document.documentElement);
 });
